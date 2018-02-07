@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三级联动效果</title>
+  <style>
+    select{
+      width: 150px;
+      height: 28px;
+      border-radius: 4px;
+    }
+    div{
+      margin:20px 20px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <p>三级联动效果</p>
+  <div>
+    一级：<select name="sel1" id="sel1">
+      <option value="">请选择</option>
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+  </div>
+  <div>
+    二级：<select name="sel2" id="sel2">
+      <option value="">请选择</option>
+    </select>
+  </div>
+  <div>
+    三级：<select name="sel3" id="sel3">
+      <option value="">请选择</option>
+    </select>
+  </div>
+
+  <p>您选择的内容是：<span id="sptext"></span>
+
+  </p>
+</body>
+<script>
+  var second = [
+    [[11],[12],[13],[14]],
+    [[21],[22],[23],[24]],
+    [[31],[32],[33],[34]],
+  ];
+  var third = [
+    [
+      [[111],[112],[113],[114]],
+      [[211],[212],[213],[214]],
+      [[311],[312],[313],[314]]
+    ],
+    [ 
+      [[121],[122],[123],[124]],
+      [[221],[222],[223],[224]],
+      [[321],[322],[323],[324]],
+
+    ],
+    [ 
+      [[131],[132],[133],[134]],
+      [[231],[232],[233],[234]],
+      [[331],[332],[333],[334]]
+    ],
+    [
+      [[141],[142],[143],[144]],
+      [[241],[242],[243],[244]],
+      [[341],[342],[343],[344]]
+    ]
+  ];
+  document.getElementById('sel1').onchange = function(){
+    //获取选择的项的索引值(从1开始，没有返回-1)
+    var selectNum= this.selectedIndex;
+    //清空原来的选项
+    document.getElementById('sel2').length = 1;
+    document.getElementById('sel3').length = 1;
+    //循环添加子节点
+    for(var i = 0;i<second[selectNum - 1].length;i++){
+      //创建元素节点
+      var  node = document.createElement('option');
+      //创建文本节点
+      var text1 = document.createTextNode(second[selectNum-1][i]);
+      node.appendChild(text1);
+      document.getElementById('sel2').appendChild(node);
+    }
+  };
+  document.getElementById('sel2').onchange = function(){
+    document.getElementById("sel3").length=1; 
+    var selectNum2 = this.selectedIndex; 
+    var selectNum3 = document.getElementById("sel1").selectedIndex; 
+    for(var i=0;i<third[selectNum2-1][selectNum3-1].length;i++){ 
+      var node =document.createElement("option"); 
+      var text2 = document.createTextNode(third[selectNum2-1][selectNum3-1][i]); 
+      node.appendChild(text2); 
+      document.getElementById("sel3").appendChild(node); 
+    }  
+  };
+</script>
+</html>

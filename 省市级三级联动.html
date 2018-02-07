@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>省市级三级联动</title>
+  <style>
+    body {background-color: #eee;margin:0;padding:0;font-family:"微软雅黑", Arial, Helvetica, sans-serif;}
+    a{ color:#006600; text-decoration:none;}
+    a:hover{color:#990000;}
+    .top{ margin:5px auto; color:#990000; text-align:center;}
+    .info select{ border:1px #993300 solid; background:#fff;}
+    .info{ margin:5px; text-align:center;}
+    .info #show{ color:#3399FF; }
+    .bottom{ text-align:right; font-size:12px; color:#ccc; width:1000px;}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>全国城市三级联动</h1>
+  </div>
+  <div class="info">
+    <div>
+      <select name="s_province" id="s_province"></select>
+      <select name="s_city" id="s_city"></select>
+      <select name="s_county" id="s_county"></select>
+      <script src="area.js" class="resource library"></script>
+      <script>_init_area()</script>
+    </div>
+    <div id="show"></div>
+  </div>
+  <script>
+    var Gid = document.getElementById;
+    var showArea = function(){
+      Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	Gid('s_city').value + " - 县/区" + Gid('s_county').value + "</h3>"
+    }
+    Gid('s_county').setAttribute('onchange','showArea()');
+  </script>
+</body>
+</html>

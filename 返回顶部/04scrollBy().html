@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04-scrollBy()-返回顶部</title>
+  <style>
+      .box{
+        position:fixed;
+        right:10px;
+        bottom: 10px;
+        height:30px;
+        width: 50px; 
+        text-align:center;
+        padding-top:20px; 
+        background-color: lightblue;
+        border-radius: 20%;
+        overflow: hidden;
+      }
+      .box:hover:before{
+        top:50%
+      }
+      .box:hover .box-in{
+        visibility: hidden;
+      }
+      .box:before{
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        content:'回到顶部';
+        width: 40px;
+        color:peru;
+        font-weight:bold;
+      } 
+      .box-in{
+        visibility: visible;
+        display:inline-block;
+        height:20px;
+        width: 20px;
+        border: 3px solid black;
+        border-color: white transparent transparent white;
+        transform:rotate(45deg);
+      }
+  </style>
+</head>
+<!-- 实现基本功能 -->
+<!-- <body style="height:2000px;">
+  <p>这里是顶部</p>
+    <button id="test" style="position:fixed;right:0;bottom:0">回到顶部</button>
+    <script>
+      //　scrollBy(x,y)方法滚动当前window中显示的文档，x和y指定滚动的相对量
+　　 //  只要把当前页面的滚动长度作为参数，逆向滚动，则可以实现回到顶部的效果
+    test.onclick = function(){
+    var top = document.body.scrollTop || document.documentElement.scrollTop
+    scrollBy(0,-top);
+    }
+    </script>
+    </body> -->
+  
+    <body style="height:2000px;">
+        <p>回到顶部</p>
+        <div id="box" class="box">
+          <div class="box-in"></div>
+        </div> 
+      </body>
+</html>
+<script>
+    var timer = null;
+    box.onclick = function(){
+    cancelAnimationFrame(timer);
+    timer = requestAnimationFrame(function fn(){
+    var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+    if(oTop > 0){
+    scrollBy(0,-50);
+    timer = requestAnimationFrame(fn);
+    }else{
+    cancelAnimationFrame(timer);
+    } 
+    });
+    }
+    </script>

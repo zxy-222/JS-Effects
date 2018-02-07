@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>返回顶部</title>
+  <style>
+    a {
+      text-decoration: none;
+    }
+    .btn{
+      display:none;
+      width: 80px;
+      height: 32px;
+      background-color: red;
+      position: fixed;
+      right: 15px;
+      bottom:120px;
+      color: #fff;
+      text-align: center;
+      padding-top: 8px;
+    }
+    .btn:hover{
+      background-color: rgb(0, 153, 255);
+    }
+    .image {
+      width: 700px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:;" class="btn">backTop</a>
+  <div class="image">
+    <img src="01.jpg" alt="">
+    <img src="01.jpg" alt="">
+    <img src="01.jpg" alt="">
+  </div>
+</body>
+<script>
+  window.onload = function(){
+    var btn = document.getElementsByClassName('btn');
+    var clientHeight = document.documentElement.clientHeight;
+    var timer = null;
+    var isTop = true;
+    console.log(btn);
+    window.onscroll = function(){
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if(osTop > clientHeight){
+        btn[0].style.display = 'block';
+      }else{
+        btn[0].style.display = 'none';
+      }
+    }
+ 
+    btn[0].onclick = function(){
+      clearInterval(timer);
+      timer = setInterval(function(){
+        var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var speed = Math.floor((-osTop)/10);
+        document.documentElement.scrollTop = osTop + speed;  
+        document.body.scrollTop = osTop + spd; 
+         if(osTop == 0){
+          clearInterval(timer);
+        } 
+      },30);
+
+    }
+  }
+</script>
+</html>

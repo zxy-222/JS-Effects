@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>遮罩层弹窗</title>
+  <style>
+    body,div{
+      margin:0;padding:0;
+    }
+    #btn,#closeBtn {
+      outline: none;
+      border:0;
+      width: 80px;
+      height: 24px;
+      background-color: rgb(41, 209, 131);
+      border-radius: 4px;
+      color:#333;
+      margin: 20px 20px;
+    }
+    #popup{
+      width: 400px;
+      height: 400px;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      display: none;
+      padding-left: 180px;
+      padding-top: 10px;
+      border-radius: 50%;
+      box-sizing:border-box;
+    }
+    #closeBtn {
+      margin:0;
+      padding:0;
+      position: absolute;
+      right:160px;
+      bottom:10px;
+    }
+    #masked {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width:100%;
+      height: 100%;
+      background-color: rgba(29, 27, 27, 0.5);
+      display: none;
+    }
+  </style>
+</head>
+<body style="height:800px;position:relative">
+  <button id="btn" onclick="func1(this)">Click Me</button>
+  <div id="popup">弹窗
+    <button id="closeBtn" onclick="func2(this)">close</button>
+  </div>
+  <div id="masked"></div>
+</body>
+<script>
+  function func1(e){
+   var popup = document.getElementById('popup');
+   var masked = document.getElementById('masked');
+   popup.style.display = 'block';
+   popup.style.zIndex = '999';
+   masked.style.display = 'block';
+   masked.style.zIndex = '888';
+  }
+  function func2(e){
+    popup.style.display = 'none';
+    masked.style.display = 'none';
+   }
+</script>
+</html>

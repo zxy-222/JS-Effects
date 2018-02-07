@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标hover菜单动画特效</title>
+  <style>
+    @font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?rretjt');
+	src:url('../fonts/icomoon.eot?#iefixrretjt') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?rretjt') format('woff'),
+		url('../fonts/icomoon.ttf?rretjt') format('truetype'),
+		url('../fonts/icomoon.svg?rretjt#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 70vh;
+  list-style: none;
+}
+
+.menu li {
+  width: 125px;
+  height: 50px;
+  -webkit-transition: background-position-x 0.9s linear;
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+}
+.menu li a {
+  font-size: 28px;
+  color: #777;
+  text-decoration: none;
+  -webkit-transition: all 0.45s;
+  transition: all 0.45s;
+}
+.menu li:hover {
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
+  -webkit-animation: line 1s;
+          animation: line 1s;
+}
+.menu li:hover a {
+  color: #d94f5c;
+}
+.menu li:not(:last-child) {
+  margin-right: 30px;
+}
+
+@-webkit-keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 390px;
+  }
+}
+    .clearfix:before,
+    .clearfix:after {
+	    content: " ";
+	    display: table;
+    }
+    .clearfix:after {
+    	clear: both;
+    }
+    body{
+      background: #1C1D22;
+      color: #D5D6E2;
+      font-weight: 500;
+      font-size: 1.05em;
+      font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+    }
+    ul,li{list-style: none}
+    .htmleaf-links a{ 
+      color: rgba(255, 255, 255, 0.6);
+      outline: none;
+      text-decoration: none;
+      -webkit-transition: 0.2s;
+      -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+      transition: 0.2s;
+    }
+    .htmleaf-links a:hover,
+    .htmleaf-links a:focus{
+      color:#74777b;
+      text-decoration: none;
+    }
+    .htmleaf-container{
+      margin: 0 auto;
+    }
+    .htmleaf-header{
+	    padding: 1em 190px 1em;
+	    letter-spacing: -1px;
+	    text-align: center;
+    }
+    .htmleaf-header h1 {
+    	color: #D5D6E2;
+    	font-weight: 600;
+    	font-size: 2em;
+    	line-height: 1;
+    	margin-bottom: 0;
+    }
+    .htmleaf-header h1 span {
+    	display: block;
+    	font-size: 60%;
+    	font-weight: 400;
+    	padding: 0.8em 0 0.5em 0;
+    	color: #c3c8cd;
+    }
+    .html-links {
+      position: relative;
+      display: inline-block;
+      white-space:nowrap;
+      text-align: center
+    }
+    .html-links::after {
+      position: absolute;
+      top: 0;
+      left:50%;
+      margin-left: -1px;
+      width: 2px;
+      height: 100%;
+      background: #dbdbdb;
+      content:'';
+      -webkit-transform:rotate3d(0,0,1,22.5deg);
+      -moz-transform:rotate3d(0,0,1,22.5deg);
+      -ms-transform:rotate3d(0,0,1,22.5deg);
+      transform: rotate3d(0,0,1,22.5deg)
+    }
+    .html-icon{
+      display: inline-block;
+      margin:0.5em;
+      padding:0;
+      width:1.5em;
+      text-decoration: none;
+    }
+    .htmleaf-icon span {
+	    display: none;
+    }
+    .htmleaf-icon:before{
+      margin: 0 5px;
+      text-transform: none;
+      font-weight: normal;
+      font-style: normal;
+      font-variant: normal;
+      font-family: 'icomoon';
+      line-height: 1;
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* icomoon */
+    .icon-htmleaf-home-outline:before {
+    	content: "\e5000";
+    }
+
+    .icon-htmleaf-arrow-forward-outline:before {
+    	content: "\e5001";
+    }
+    @media screen and (max-width: 1024px) {
+	      .htmleaf-header {
+		    padding: 2em 10% 2em;
+	    }
+	    .htmleaf-header h1 {
+        font-size:1.4em;
+      }
+      .htmleaf-links{font-size: 1.4em}
+    }
+    @media screen and (max-width: 960px) {
+    	.htmleaf-header {
+    		padding: 2em 10% 2em;
+    	}
+    	.htmleaf-header h1 {
+            font-size:1.2em;
+        }
+        .htmleaf-links{font-size: 1.2em}
+        .related h3{font-size: 1em;}
+    	.related a h3 {
+    		font-size: 0.8em;
+    	}
+    }
+    @media screen and (max-width: 766px) {
+    	.htmleaf-header h1 {
+            font-size:1.3em;
+        }
+        .htmleaf-links{font-size: 1.3em}
+    }
+
+    @media screen and (max-width: 640px) {
+    	.htmleaf-header {
+    		padding: 2em 10% 2em;
+    	}
+    	.htmleaf-header h1 {
+            font-size:1em;
+        }
+        .htmleaf-links{font-size: 1em}
+        .related h3{font-size: 0.8em;}
+    	.related a h3 {
+    		font-size: 0.6em;
+    	}
+    }
+  </style>
+</head>
+<body>
+ <div class="htmleaf-container">
+  <header class="htmleaf-header">
+    <h1>鼠标hover菜单动画特效</h1>
+    <div class="html-links">
+      <a href="http://www.htmleaf.com/" title="点这里呀" class="htmleaf-icon icon-htmleaf-home-outline" target="_blank"></a>
+    </div>
+  </header>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">首页</a></li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">联系我们</a></li>
+      <li><a href="#">常见问题</a></li>
+    </ul>
+  </nav>
+ </div>
+</body>
+</html>
